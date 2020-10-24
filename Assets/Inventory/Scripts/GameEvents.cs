@@ -5,9 +5,6 @@ namespace Inventory
     public class GameEvents
     {
         public static event Action onCloseMenu;
-        public static void DispatchOnCloseMenu()
-        {
-            if (onCloseMenu != null) onCloseMenu();
-        }
+        public static void DispatchOnCloseMenu() => onCloseMenu?.Invoke();
     }
 }

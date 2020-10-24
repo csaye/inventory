@@ -1,39 +1,44 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Inventory
 {
     public class Slot : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private CarrierSlot carrierSlot = null;
+        [Header("Slot References")]
+        [SerializeField] private Sprite placeholder = null;
+        [SerializeField] private Image itemImage = null;
+        [SerializeField] private TextMeshProUGUI countText = null;
 
-        public ItemScriptable item {get; private set;} = null;
-        public int count {get; private set;} = 0;
-
-        public Slot()
+        private ItemScriptable _item = null;
+        public ItemScriptable item
         {
-            item = null;
-            count = 0;
+            get { return _item; }
+            set
+            {
+                _item = value;
+                itemImage.sprite = item != null ? item.itemIcon : placeholder;
+            }
         }
+
+        private int _count = 0;
+        public int count
+        {
+            get { return _count; }
+            set
+            {
+                _count = value;
+                countText.text = count > 1 ? count.ToString() : "";
+            }
+        }
+
+        public Slot() {}
 
         public Slot(ItemScriptable _item, int _count)
         {
             item = _item;
             count = _count;
-        }
-
-        public void OnClick()
-        {
-            // If item being carried
-            if (carrierSlot.carryingItem)
-            {
-
-            }
-            // If no item being carried
-            else
-            {
-
-            }
         }
 
         // Returns whether slot is empty
