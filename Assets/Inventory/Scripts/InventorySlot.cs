@@ -9,6 +9,9 @@ namespace Inventory
 
         public void OnClick()
         {
+            // If menu not open, return
+            if (!UIManager.menuOpen) return;
+
             // If no item being carried
             if (carrierSlot.isEmpty)
             {
