@@ -64,4 +64,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# TextMesh Pro shaders
+/[Aa]ssets/Externals/TextMesh*Pro/Shaders/
+
+# Mac folder attributes
 .DS_Store
