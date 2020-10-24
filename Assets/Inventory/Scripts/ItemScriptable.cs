@@ -2,6 +2,7 @@
 
 namespace Inventory
 {
+    [CreateAssetMenu(menuName = "Scriptables/Item", fileName = "Item")]
     public class ItemScriptable : ScriptableObject
     {
         public int itemID;
