@@ -9,7 +9,18 @@ namespace Inventory
 
         public void AddItem(ItemScriptable item, int count)
         {
-            
+            // Cycle through all slots
+            for (int i = 0; i < slots.Length; i++)
+            {
+                // Get slot at index
+                Slot slot = slots[i];
+
+                // If slot empty
+                if (slot.IsEmpty())
+                {
+                    slot = new Slot(item, count);
+                }
+            }
         }
     }
 }
