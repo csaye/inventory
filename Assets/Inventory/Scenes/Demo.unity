@@ -6693,6 +6693,7 @@ MonoBehaviour:
   placeholder: {fileID: 21300000, guid: b8277713ebfae43cf9106ed7fb46a7b7, type: 3}
   itemImage: {fileID: 1614230824731458007}
   countText: {fileID: 1614230824070315768}
+  mainCamera: {fileID: 519420031}
 --- !u!1001 &1614230823582788871
 PrefabInstance:
   m_ObjectHideFlags: 0
