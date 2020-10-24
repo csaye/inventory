@@ -33,18 +33,18 @@ namespace Inventory
             }
         }
 
+        // Whether slot is empty
+        public bool isEmpty
+        {
+            get { return count == 0 || item == null; }
+        }
+
         public Slot() {}
 
         public Slot(ItemScriptable _item, int _count)
         {
             item = _item;
             count = _count;
-        }
-
-        // Returns whether slot is empty
-        public bool IsEmpty()
-        {
-            return count == 0 || item == null;
         }
     }
 }

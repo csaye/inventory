@@ -1,9 +1,7 @@
 ﻿namespace Inventory
 {
     public class CarrierSlot : Slot
-    {
-        public bool carryingItem {get; private set;} = false;
-        
+    {   
         private InventorySlot slotTakenFrom = null;
 
         public void SetSlot(ItemScriptable _item, int _count, InventorySlot slot)
@@ -13,7 +11,7 @@
             slotTakenFrom = slot;
         }
 
-        private void ClearSlot()
+        public void ClearSlot()
         {
             item = null;
             count = 0;
@@ -23,7 +21,8 @@
         // Snap item back if menu closed
         private void OnCloseMenu()
         {
-            if (carryingItem)
+            // If item being carried
+            if (!isEmpty)
             {
                 slotTakenFrom.SetSlot(item, count);
                 ClearSlot();

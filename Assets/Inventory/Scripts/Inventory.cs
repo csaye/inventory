@@ -16,7 +16,7 @@ namespace Inventory
                 Slot slot = slots[i];
 
                 // If slot empty
-                if (slot.IsEmpty())
+                if (slot.isEmpty)
                 {
                     slot = new Slot(item, count);
                 }

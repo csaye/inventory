@@ -9,15 +9,46 @@ namespace Inventory
 
         public void OnClick()
         {
-            // If item being carried
-            if (carrierSlot.carryingItem)
-            {
-
-            }
             // If no item being carried
+            if (carrierSlot.isEmpty)
+            {
+                // If slot empty, return
+                if (isEmpty)
+                {
+                    return;
+                }
+                // Otherwise, transfer to carrier slot
+                else
+                {
+                    carrierSlot.SetSlot(item, count, this);
+                    ClearSlot();
+                }
+            }
+            // If item being carried
             else
             {
-
+                // If slot empty, set item and clear carrier
+                if (isEmpty)
+                {
+                    SetSlot(carrierSlot.item, carrierSlot.count);
+                    carrierSlot.ClearSlot();
+                }
+                // If stackable to slot
+                else if (item == carrierSlot.item && count < item.maxStack)
+                {
+                    // If carrier items can stack fully, stack and clear carrier
+                    if (count + carrierSlot.count <= item.maxStack)
+                    {
+                        count += carrierSlot.count;
+                        carrierSlot.ClearSlot();
+                    }
+                    // If carrier items cannot stack fully, stack until maxed
+                    else
+                    {
+                        carrierSlot.count -= item.maxStack - count;
+                        count = item.maxStack;
+                    }
+                }
             }
         }
 
