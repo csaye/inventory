@@ -24,6 +24,7 @@ An advanced inventory system for Unity.
 ### Hotbar
 - Contains logic for `selectedSlot` property
 ### CarrierSlot
+- Inherits from Slot
 - Contains logic for icon following mouse while managing items
 ### UIManager
 - Contains logic for toggling inventory
