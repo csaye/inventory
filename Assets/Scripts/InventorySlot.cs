@@ -52,6 +52,17 @@ namespace Inventory
                         count = item.maxStack;
                     }
                 }
+                // If not stackable to slot, swap
+                else
+                {
+                    // Save carrier item and count
+                    ItemScriptable carrierItem = carrierSlot.item;
+                    int carrierCount = carrierSlot.count;
+
+                    // Set carrier and self slots
+                    carrierSlot.SetSlot(item, count, carrierSlot.slotTakenFrom);
+                    SetSlot(carrierItem, carrierCount);
+                }
             }
         }
 

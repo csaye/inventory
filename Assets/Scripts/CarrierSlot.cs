@@ -4,10 +4,7 @@ namespace Inventory
 {
     public class CarrierSlot : Slot
     {
-        [Header("Carrier Slot References")]
-        [SerializeField] private Camera mainCamera = null;
-
-        private InventorySlot slotTakenFrom = null;
+        public InventorySlot slotTakenFrom { get; private set; } = null;
 
         public void SetSlot(ItemScriptable _item, int _count, InventorySlot slot)
         {
@@ -28,7 +25,7 @@ namespace Inventory
             // If not empty, move to mouse position
             if (!isEmpty)
             {
-                Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 mousePosition = Input.mousePosition;
                 transform.position = new Vector3(mousePosition.x, mousePosition.y, transform.position.z);
             }
         }

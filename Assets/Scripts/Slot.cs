@@ -11,6 +11,7 @@ namespace Inventory
         [SerializeField] private Image itemImage = null;
         [SerializeField] private TextMeshProUGUI countText = null;
 
+        // Item property which automatically updates item image
         private ItemScriptable _item = null;
         public ItemScriptable item
         {
@@ -22,6 +23,7 @@ namespace Inventory
             }
         }
 
+        // Count property which automatically updates count text
         private int _count = 0;
         public int count
         {
