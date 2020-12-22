@@ -5,13 +5,7 @@ namespace Inventory
     public class Inventory : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private ItemScriptable[] itemScriptables = null;
         [SerializeField] private InventorySlot[] slots = new InventorySlot[40];
-
-        public void AddItemTest()
-        {
-            AddItem(itemScriptables[1], 1);
-        }
 
         // Returns whether items were added successfully
         public bool AddItem(ItemScriptable item, int count)

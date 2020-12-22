@@ -7,6 +7,7 @@ namespace Inventory
         [Header("Inventory Slot References")]
         [SerializeField] private CarrierSlot carrierSlot = null;
 
+        // Handles click on slot
         public void OnClick()
         {
             // If menu not open, return
